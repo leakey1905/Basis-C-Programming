@@ -8,7 +8,7 @@
 int maxlena = 0;  //max length of word with 'a'
 
 int findWord(char word[MAXLEN]){
-	int curlenw = 0;  //current length of word, max..
+	int curlenw = 0;  //current length of word
 	int has_a = 0;	  //flag: whether the current word has 'a' - 0:none,1:has
 	int i, p = 0;     // p: start point of a word
 	for (i = 0; word[i] != '\0'; i++){
@@ -20,7 +20,7 @@ int findWord(char word[MAXLEN]){
 		else{ // end of one word
 			if ((has_a == 1) && (maxlena < curlenw)){
 				maxlena = curlenw;
-				p = i; // point to the end+1 of the world
+				p = i; // point to the end+1 of the word
 			}
 			curlenw = 0;
 			has_a = 0;
@@ -28,7 +28,7 @@ int findWord(char word[MAXLEN]){
 	}
 	if ((has_a == 1) && (maxlena < curlenw)){//check the last word
 		maxlena = curlenw;
-		p = i; // point to the end+1 of the world
+		p = i; // point to the end+1 of the word
 	}
 	return p;
 }
@@ -36,7 +36,7 @@ int findWord(char word[MAXLEN]){
 int main(){
 	char word[MAXLEN];
 	int i, p;
-	gets_s(word,MAXLEN);  //input the word
+	gets_s(word, MAXLEN);  //input the word
 	//split the string by space
 	p = findWord(word);
 	if (!maxlena)
