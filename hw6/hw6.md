@@ -1,9 +1,9 @@
 #### Function
 
 1. Calculate S: 
-   $$
+   
    S = 2^1 * 1! + 2^2 * 2!  + ··· + 2^n * n!
-   $$
+   
    use function to solve the problem and n is granted smaller than 10.
 
    ​
