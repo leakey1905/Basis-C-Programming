@@ -12,7 +12,7 @@ int findWord(char word[MAXLEN]){
 	int has_a = 0;	  //flag: whether the current word has 'a' - 0:none,1:has
 	int i, p = 0;     // p: start point of a word
 	for (i = 0; word[i] != '\0'; i++){
-		if (word[i] != ' '){
+		if (word[i] != ' '){  // still in a word
 			curlenw++;
 			if (word[i] == 'a')
 				has_a = 1;
@@ -33,6 +33,30 @@ int findWord(char word[MAXLEN]){
 	return p;
 }
 
+void checkMultiLongest(char word[MAXLEN], int p, int maxlena){ //check if more than one longest
+	int i, j;
+	int has_a = 0;	  //flag: whether the current word has 'a' - 0:none,1:has
+	int curlenw = 0;  //current length of word
+	for (i = p; word[i] != '\0'; i++){
+		if (word[i] != ' '){  // still in a word
+			curlenw++;
+			if (word[i] == 'a')
+				has_a = 1;
+		}
+		else{ // end of one word
+			if ((has_a == 1) && (maxlena == curlenw)){
+				for (j = i - maxlena; j < i; j++){
+					printf("%c", word[j]);
+				}
+				printf(" ");
+			}
+			curlenw = 0;
+			has_a = 0;
+		}
+	}
+	printf(" ");
+}
+
 int main(){
 	char word[MAXLEN];
 	int i, p;
@@ -46,8 +70,9 @@ int main(){
 		for (i = p-maxlena;i < p; i++){
 			printf("%c", word[i]);
 		}
-		printf("\n");
+		printf(" ");
 	}
+	checkMultiLongest(word, p, maxlena);
 	Sleep(3000);
 	return 0;
 }
