@@ -15,8 +15,7 @@ int main(){
 	for (row = 3; row <= n; row++) //calculate the rest place
 		for (col = 2; col <= row - 1; col++)
 			a[row][col] = a[row - 1][col - 1] + a[row - 1][col];
-	//print the triangle
-	for (row = 1; row <= n; row++){
+	for (row = 1; row <= n; row++){  //print the triangle
 		for (k = 1; k <= n - row; k++)
 			printf("   "); // three spaces to make the print result look better
 		for (col = 1; col <= row; col++)
@@ -24,6 +23,5 @@ int main(){
 		printf("\n");
 	}
 	printf("\n");
-	
-	
+	return 0;
 }
