@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 #define day 13  //get date 13 for each month
+#define Friday 5  //set date to calculate
 
 int main(){
 	int y, c, m, w;  //year, century, month, weekdate
@@ -10,7 +11,7 @@ int main(){
 	y -= c * 100; 
 	for (m = 1; m <= 12; m++){
 		w = y + y / 4 + c / 4 - 2 * c + 26 * (m + 1) / 10 + day - 1; //ref: Zeller formular 
-		if (w % 7 == 5)
+		if (w % 7 == Friday)
 			cnt++;
 	}
 	printf("%d", cnt);
