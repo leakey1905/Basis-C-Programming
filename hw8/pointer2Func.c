@@ -24,5 +24,5 @@ int func2(int n)
 {
 	if (n == 0)  return 0;
 	if (n == 1)  return 1;
-	return (func1(n - 1) + 2 * func1(n - 2));
+	return (func2(n - 1) + 2 * func2(n - 2));
 }
